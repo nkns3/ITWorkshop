@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<net.java.amateras.uml.activitydiagram.model.ActivityModel>
+  <backgroundColor>
+    <red>255</red>
+    <green>255</green>
+    <blue>206</blue>
+  </backgroundColor>
+  <foregroundColor>
+    <red>0</red>
+    <green>0</green>
+    <blue>0</blue>
+  </foregroundColor>
+  <showIcon>true</showIcon>
+  <listeners serialization="custom">
+    <java.beans.PropertyChangeSupport>
+      <default>
+        <source class="net.java.amateras.uml.activitydiagram.model.ActivityModel" reference="../../../.."/>
+        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+      </default>
+      <null/>
+    </java.beans.PropertyChangeSupport>
+  </listeners>
+  <sourceConnections/>
+  <targetConnections/>
+  <children>
+    <net.java.amateras.uml.model.NoteModel>
+      <backgroundColor>
+        <red>255</red>
+        <green>255</green>
+        <blue>206</blue>
+      </backgroundColor>
+      <foregroundColor>
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+      </foregroundColor>
+      <showIcon>true</showIcon>
+      <parent class="net.java.amateras.uml.activitydiagram.model.ActivityModel">
+        <backgroundColor reference="../../backgroundColor"/>
+        <foregroundColor reference="../../foregroundColor"/>
+        <showIcon>true</showIcon>
+        <listeners serialization="custom">
+          <java.beans.PropertyChangeSupport>
+            <default>
+              <source class="net.java.amateras.uml.activitydiagram.model.ActivityModel" reference="../../../.."/>
+              <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+            </default>
+            <null/>
+          </java.beans.PropertyChangeSupport>
+        </listeners>
+        <sourceConnections/>
+        <targetConnections/>
+        <children>
+          <net.java.amateras.uml.model.NoteModel reference="../../.."/>
+        </children>
+        <filterProperty/>
+      </parent>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <source class="net.java.amateras.uml.model.NoteModel" reference="../../../.."/>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+      <constraint>
+        <height>91</height>
+        <width>300</width>
+        <x>35</x>
+        <y>148</y>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections/>
+      <children/>
+      <filterProperty/>
+      <content>大まかな処理&#xd;
+Geolocation APIにより位置情報を取得&#xd;
+地図情報と組み合わせて周辺情報を取得&#xd;
+ソフトを起動した現在位置を報告しやすい形で表示する&#xd;
+（予定？メールかラインでボタン一つで送る）</content>
+      <old>大まかな処理&#xd;
+Geolocation APIにより位置情報を取得&#xd;
+地図情報と組み合わせて周辺情報を取得&#xd;
+ソフトを起動した現在位置を報告しやすい形で表示する</old>
+    </net.java.amateras.uml.model.NoteModel>
+    <net.java.amateras.uml.model.NoteModel>
+      <backgroundColor>
+        <red>255</red>
+        <green>255</green>
+        <blue>206</blue>
+      </backgroundColor>
+      <foregroundColor>
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+      </foregroundColor>
+      <showIcon>true</showIcon>
+      <parent class="net.java.amateras.uml.activitydiagram.model.ActivityModel">
+        <backgroundColor reference="../../backgroundColor"/>
+        <foregroundColor reference="../../foregroundColor"/>
+        <showIcon>true</showIcon>
+        <listeners serialization="custom">
+          <java.beans.PropertyChangeSupport>
+            <default>
+              <source class="net.java.amateras.uml.activitydiagram.model.ActivityModel" reference="../../../.."/>
+              <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+            </default>
+            <null/>
+          </java.beans.PropertyChangeSupport>
+        </listeners>
+        <sourceConnections/>
+        <targetConnections/>
+        <children>
+          <net.java.amateras.uml.model.NoteModel reference="../../../../net.java.amateras.uml.model.NoteModel"/>
+          <net.java.amateras.uml.model.NoteModel reference="../../.."/>
+        </children>
+        <filterProperty/>
+      </parent>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <source class="net.java.amateras.uml.model.NoteModel" reference="../../../.."/>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+      <constraint>
+        <height>107</height>
+        <width>379</width>
+        <x>33</x>
+        <y>29</y>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections/>
+      <children/>
+      <filterProperty/>
+      <content>アプリ説明&#xd;
+アプリを起動すると位置情報を表示する。&#xd;
+あらかじめ入力された「一言」や「小さなイラスト」を相手先に送信。&#xd;
+&#xd;
+迷子になってしまった人向けアプリ&#xd;
+または、電話をしている時に現在位置を即座に説明する手助け</content>
+      <old>アプリ説明&#xd;
+アプリを起動すると位置情報を表示する。&#xd;
+あらかじめ入力された「一言」や「小さなイラスト」&#xd;
+を&#xd;
+迷子になってしまった人向けアプリ&#xd;
+または、電話をしている時に&#xd;
+現在位置を即座に説明する手助け</old>
+    </net.java.amateras.uml.model.NoteModel>
+    <net.java.amateras.uml.model.NoteModel>
+      <backgroundColor reference="../../../backgroundColor"/>
+      <foregroundColor reference="../../../foregroundColor"/>
+      <showIcon>true</showIcon>
+      <parent class="net.java.amateras.uml.activitydiagram.model.ActivityModel" reference="../../.."/>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <source class="net.java.amateras.uml.model.NoteModel" reference="../../../.."/>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+      <constraint>
+        <height>594</height>
+        <width>529</width>
+        <x>36</x>
+        <y>253</y>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections/>
+      <children/>
+      <filterProperty/>
+      <content>作成した理由&#xd;
+A型作業所に通う方に必要かはわからないが、&#xd;
+心を病んだ方や、軽度の障がいを持つ方々が仕事場や施設に出かけて連絡が取れない場合、&#xd;
+本人に&#xd;
+	・特に理由が無い&#xd;
+	・途中で嫌になった&#xd;
+	・体調がすぐれず少し休んでいたら時間がたって連絡しづらい&#xd;
+等の理由で、&#xd;
+	・電話で直接話すことができない（負い目がある、勇気が出ない）&#xd;
+	・メールなどの記録に残る形での連絡を取りたくない（評価がマイナスになる）&#xd;
+	・スマホの操作がおぼつかない（身体や精神の問題）&#xd;
+などの問題からそのままフェードアウトしてしまう事を回避するために作成。&#xd;
+&#xd;
+やり取りする相手は担当者（チームリーダーや直属の上司、またはケアマネージャー）のみで&#xd;
+万が一の事件や事故の回避と、本人と関係者の負担を軽減するため&#xd;
+&#xd;
+本当に迷子になってしまった場合でも、&#xd;
+連絡を取りたい側は今すぐ情報が欲しいはずなので、&#xd;
+アプリを起動したら表示されている文章を読むだけで報告ができる（またはコピペしてメールに貼り付ける）&#xd;
+&#xd;
+本人に、メンタル面が不安で毎日確実に仕事場に来れるか本人、または担当者が不安な場合や&#xd;
+常習的に&#xd;
+・遅刻が多い&#xd;
+・失踪癖&#xd;
+・迷子になりやすい&#xd;
+等の理由がある場合、&#xd;
+本人が連絡を取らない限り担当者は電話をかけ続ける以外の手段が無いため&#xd;
+担当を任された者の負担が大きく、取引先に最低限の連絡もできない。&#xd;
+&#xd;
+考えられる対処法がGPSで追跡できるツールの使用だが、&#xd;
+それはもはや一切の信用はしないということであり、&#xd;
+また自分の行動が監視されているという状況は本人の精神面の負担になりうる。&#xd;
+&#xd;
+一般企業に勤めている場合（健康な精神状態）ならば必要のないアプリかもしれないが、&#xd;
+何らかの理由でA型作業所に通うことになった方々</content>
+      <old>作成した理由&#xd;
+A型作業所に通う方に必要かはわからないが、&#xd;
+心を病んだ方や、軽度の障がいを持つ方々が仕事場や施設に出かけて連絡が取れない場合、&#xd;
+本人に&#xd;
+	・特に理由が無い&#xd;
+	・途中で嫌になった&#xd;
+	・体調がすぐれず少し休んでいたら時間がたって連絡しづらい&#xd;
+等の理由で、&#xd;
+	・電話で直接話すことができない（負い目がある、勇気が出ない）&#xd;
+	・メールなどの記録に残る形での連絡を取りたくない（評価がマイナスになる）&#xd;
+	・スマホの操作がおぼつかない（身体や精神の問題）&#xd;
+などの問題からそのままフェードアウトしてしまう事を回避するために作成。&#xd;
+&#xd;
+やり取りする相手は担当者（チームリーダーや直属の上司、またはケアマネージャー）のみで&#xd;
+万が一の事件や事故の回避と、本人と関係者の負担を軽減するため&#xd;
+&#xd;
+本当に迷子になってしまった場合でも、&#xd;
+連絡を取りたい側は今すぐ情報が欲しいはずなので、&#xd;
+アプリを起動したら表示されている文章を読むだけで報告ができる（またはコピペしてメールに貼り付ける）&#xd;
+&#xd;
+本人に、メンタル面が不安で毎日確実に仕事場に来れるか本人、または担当者が不安な場合や&#xd;
+常習的に&#xd;
+・遅刻が多い&#xd;
+・失踪癖&#xd;
+・迷子になりやすい&#xd;
+等の理由がある場合、&#xd;
+本人が連絡を取らない限り担当者は電話をかけ続ける以外の手段が無いため&#xd;
+担当を任された者の負担が大きく、取引先に最低限の連絡もできない。&#xd;
+&#xd;
+考えられる対処法がGPSで追跡できるツールの使用だが、&#xd;
+それはもはや一切の信用はしないということであり、&#xd;
+また自分の行動が監視されているという状況は本人の精神面の負担になりうる&#xd;
+</old>
+    </net.java.amateras.uml.model.NoteModel>
+  </children>
+  <filterProperty/>
+</net.java.amateras.uml.activitydiagram.model.ActivityModel>
