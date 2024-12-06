@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<net.java.amateras.uml.activitydiagram.model.ActivityModel>
+  <backgroundColor>
+    <red>255</red>
+    <green>255</green>
+    <blue>206</blue>
+  </backgroundColor>
+  <foregroundColor>
+    <red>0</red>
+    <green>0</green>
+    <blue>0</blue>
+  </foregroundColor>
+  <showIcon>true</showIcon>
+  <listeners serialization="custom">
+    <java.beans.PropertyChangeSupport>
+      <default>
+        <source class="net.java.amateras.uml.activitydiagram.model.ActivityModel" reference="../../../.."/>
+        <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+      </default>
+      <null/>
+    </java.beans.PropertyChangeSupport>
+  </listeners>
+  <sourceConnections/>
+  <targetConnections/>
+  <children>
+    <net.java.amateras.uml.model.NoteModel>
+      <backgroundColor reference="../../../backgroundColor"/>
+      <foregroundColor reference="../../../foregroundColor"/>
+      <showIcon>true</showIcon>
+      <parent class="net.java.amateras.uml.activitydiagram.model.ActivityModel" reference="../../.."/>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <source class="net.java.amateras.uml.model.NoteModel" reference="../../../.."/>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+      <constraint>
+        <height>160</height>
+        <width>448</width>
+        <x>37</x>
+        <y>33</y>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections/>
+      <children/>
+      <filterProperty/>
+      <content>・主に事前の連絡では無く、直前の連絡に使う&#xd;
+少ない動作でシンプルなコミュニケーションをとれるアプリ。&#xd;
+&#xd;
+アプリを起動すると位置情報を表示する。&#xd;
+あらかじめ入力された「一言」や「小さなイラスト」を選び、相手先に送信する機能付き。&#xd;
+または、電話をしている時に現在位置を即座に説明する手助け（説明文のテンプレートを表示）&#xd;
+&#xd;
+最低限の機能のみ実装。メールソフトなどの連動はしない。&#xd;
+（実装するとそれらの機能を使わざるを得ないという強制になりかねないので）</content>
+      <old></old>
+    </net.java.amateras.uml.model.NoteModel>
+    <net.java.amateras.uml.model.NoteModel>
+      <backgroundColor reference="../../../backgroundColor"/>
+      <foregroundColor reference="../../../foregroundColor"/>
+      <showIcon>true</showIcon>
+      <parent class="net.java.amateras.uml.activitydiagram.model.ActivityModel" reference="../../.."/>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <source class="net.java.amateras.uml.model.NoteModel" reference="../../../.."/>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+      <constraint>
+        <height>151</height>
+        <width>288</width>
+        <x>504</x>
+        <y>38</y>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections/>
+      <children/>
+      <filterProperty/>
+      <content>・大まかな処理&#xd;
+Geolocation APIにより位置情報を取得&#xd;
+地図情報と組み合わせて周辺情報を取得&#xd;
+ソフトを起動した現在位置を報告しやすい形で表示する</content>
+      <old></old>
+    </net.java.amateras.uml.model.NoteModel>
+    <net.java.amateras.uml.model.NoteModel>
+      <backgroundColor reference="../../../backgroundColor"/>
+      <foregroundColor reference="../../../foregroundColor"/>
+      <showIcon>true</showIcon>
+      <parent class="net.java.amateras.uml.activitydiagram.model.ActivityModel" reference="../../.."/>
+      <listeners serialization="custom">
+        <java.beans.PropertyChangeSupport>
+          <default>
+            <source class="net.java.amateras.uml.model.NoteModel" reference="../../../.."/>
+            <propertyChangeSupportSerializedDataVersion>2</propertyChangeSupportSerializedDataVersion>
+          </default>
+          <null/>
+        </java.beans.PropertyChangeSupport>
+      </listeners>
+      <constraint>
+        <height>602</height>
+        <width>788</width>
+        <x>41</x>
+        <y>214</y>
+      </constraint>
+      <sourceConnections/>
+      <targetConnections/>
+      <children/>
+      <filterProperty/>
+      <content>・作成した理由&#xd;
+A型作業所に通う方に必要かはわからないが、&#xd;
+心を病んだ方や、軽度の障がいを持つ方々が仕事場や施設に出かけて連絡が取れない場合、&#xd;
+本人に&#xd;
+	・特に理由が無い&#xd;
+	・途中で嫌になった&#xd;
+	・体調がすぐれず少し休んでいたら時間がたって連絡しづらい&#xd;
+等の理由で、&#xd;
+	・電話で直接話すことができない（負い目がある、勇気が出ない）&#xd;
+	・メールなどの記録に残る形での連絡を取りたくない（評価がマイナスになる）&#xd;
+	・スマホの操作がおぼつかない（身体や精神の問題）&#xd;
+などの問題からそのままフェードアウトしてしまう事を回避するために作成。&#xd;
+&#xd;
+やり取りする相手は担当者（チームリーダーや直属の上司、またはケアマネージャー）のみで&#xd;
+万が一の事件や事故の回避と、本人と関係者の負担を軽減するため&#xd;
+&#xd;
+本当に迷子になってしまった場合や、寝坊やアクシデントで連絡が取れなかった場合でも、&#xd;
+担当者や仕事先は今すぐ情報が欲しいはずなので、&#xd;
+電話している時にアプリを起動したら表示されている文章を読むだけで報告ができる&#xd;
+（またはコピペしてメールに貼り付ける）&#xd;
+&#xd;
+本人に、メンタル面が不安で毎日確実に仕事場に来れるか本人、または担当者が不安な場合や&#xd;
+常習的に&#xd;
+・遅刻が多い&#xd;
+・失踪癖&#xd;
+・迷子になりやすい&#xd;
+等の理由がある場合、&#xd;
+本人が連絡を取らない限り担当者は電話をかけ続ける以外の手段が無いため&#xd;
+担当を任された者の負担が大きく、取引先に最低限の連絡もできない。&#xd;
+&#xd;
+考えられる対処法がGPSで追跡できるツールの使用だが、&#xd;
+それはもはや一切の信用はしないということであり、&#xd;
+また自分の行動が監視されているという状況は本人の精神面の負担になりうる。&#xd;
+&#xd;
+一般企業に勤めている人々の場合（健康な精神状態の方々）ならば必要のないアプリかもしれないが、&#xd;
+何らかの理由でA型作業所に通うことになった方々には小さな挫折も命取りになりかねないので、&#xd;
+心身ともに健康な状態に回復するまで負荷をかけずに成功経験を積んで&#xd;
+社会に再び参加できるようにと作ってみました。</content>
+      <old></old>
+    </net.java.amateras.uml.model.NoteModel>
+  </children>
+  <filterProperty/>
+</net.java.amateras.uml.activitydiagram.model.ActivityModel>
