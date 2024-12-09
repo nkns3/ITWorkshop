@@ -1,0 +1,27 @@
+package model;
+
+import jakarta.servlet.http.HttpServletRequest;
+import model.LoginLogic;
+import model.User;
+
+@WebServlet("/Login")
+// ログインに関するリクエストを処理するコントローラ
+public class Login  extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	protected void doPost(HttpServletRequest request,
+		HttpServletResponse response)
+		throws ServletException, IOException {
+	// リクエストパラメータの取得
+	request.setCharacterEncoding("UTF-8");
+	String name = request.getParameter("name");
+	String pass = request.getParameter("pass");
+	// Userインスタンス (ユーザー情報) の生成
+	User user = new User(name, pass);
+	// ログイン処理
+	LoginLogic loginLogic = new LoginaLogic();
+	boolean isLogin = loginLogic.execute(user);
+	
+	
+	}
+}

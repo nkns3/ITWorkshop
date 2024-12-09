@@ -1,0 +1,5 @@
+INDEX VERSION 1.134
+C:\Users\8Java18\Desktop\selfProduced\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2800381215.index
+\SelpPoint\src\main\java
+C:\Users\8Java18\Desktop\selfProduced\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1771550684.index
+\SelpPoint\src\main\java
