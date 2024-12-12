@@ -6,5 +6,6 @@ import java.util.List;
 public class PostSMessageLogic {
 	public void execute(SelpMessage selpmessage, List<SelpMessage> selpmessageList) {
 		selpmessageList.add(0, selpmessage);	// 先頭に追加
+		
 	}
 }

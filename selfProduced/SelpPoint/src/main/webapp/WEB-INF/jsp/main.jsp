@@ -1,9 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="model.User" %>
+<%@ page import="model.User, model.SelpMessage, model.SelpImg, java.util.List" %>
 <%
 // セッションスコープに保存されたユーザー情報を取得
 User loginUser = (User)session.getAttribute("loginUser");
+// アプリケーションスコープに保存されたユーザー情報を取得
+List<SelpMessage> messageList = 
+(List<SelpMessage>)application.getAttribute("messageList");
+					// アプリケーションスコープに保存されたイメージ画像URLを取得
+List<SelpImg> selpImgList =
+(List<SelpImg>)application.getAttribute("selpImgList");
+					
+
 %>
 
 <!DOCTYPE html>
@@ -18,5 +26,24 @@ User loginUser = (User)session.getAttribute("loginUser");
 <p>
 <%= loginUser.getName() %>さん、ログイン中
 <a href="Logout">ログアウト</a>
+</p>
+<p><a href="Main">更新</a></p>
+<form action="Main" method="post">
+<input type="text" name="text">
+<input type="submit" value="メッセージ">
+</form>
+
+<!-- null処理失敗------------------------------------------------------------------------- -->
+
+<% for (SelpMessage selpMessage : messageList) {%>
+<% if selpMessage.getText() != null { %>
+	<p><%= selpMessage.getUserName() %> : <%= selpMessage.getText() %></p>
+<% } else { %>	
+<% }} %>
+<% for (SelpImg selpImg : selpImgList) {%>
+<% if selpImg.getSelpImg() != null { %>
+	<p><%= selpImg.getUserName() %> : <%= selpImg.getSelpImg() %></p>
+<% } else { %>	
+<% }} %>
 </body>
 </html>
