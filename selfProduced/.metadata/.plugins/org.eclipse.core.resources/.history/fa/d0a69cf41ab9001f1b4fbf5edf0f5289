@@ -1,0 +1,29 @@
+/**
+ * 
+ */
+const currentDate = new Date();
+
+const year = currentDate.getFullYear();
+const month = currentDate.getMonth() + 1;
+const date = currentDate.getDate();
+const dayNum = currentDate.getDay();
+const weekday = ["日","月","火","水","木","金","土"];
+const day = weekday[dayNum];
+
+const outputDateEl = document.querySelectorAll('.output-date');
+outputDateEl.innerText = `${year}年${month}月${date}日${day}曜日`;
+
+
+
+function LoadProc() {
+  var now = new Date();
+  var YearValue = now.getFullYear();
+  var MonthValue = now.getMonth()+1;
+  var DateValue = now.getDate();
+  var HourValue = now.getHours();
+  var MinValue = now.getMinutes();
+  var SecValue = now.getSeconds();
+
+  var target = document.getElementById("DateTimeDisp");
+  target.innerHTML = YearValue + "年" + MonthValue + "月" + DateValue + "日" + HourValue + ":" + MinValue + ":" + SecValue;
+}

@@ -1,0 +1,23 @@
+
+function LoadProc() {
+  var now = new Date();
+  var DateValue = now.getDate();
+  var HourValue = now.getHours();
+  var MinValue = now.getMinutes();
+  var SecValue = now.getSeconds();
+
+  var target = document.getElementById("DateTimeDisp");
+  target.innerHTML =  DateValue + "日 (" + HourValue + ":" + MinValue + ":" + SecValue + ")";
+  
+//function LoadProc() {
+//  var now = new Date();
+//  var YearValue = now.getFullYear();
+//  var MonthValue = now.getMonth()+1;
+//  var DateValue = now.getDate();
+//  var HourValue = now.getHours();
+//  var MinValue = now.getMinutes();
+//  var SecValue = now.getSeconds();
+//
+//  var target = document.getElementById("DateTimeDisp");
+//  target.innerHTML = YearValue + "年" + MonthValue + "月" + DateValue + "日" + HourValue + ":" + MinValue + ":" + SecValue;
+//}
