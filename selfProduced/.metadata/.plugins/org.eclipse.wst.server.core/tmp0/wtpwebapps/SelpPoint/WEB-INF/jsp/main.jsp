@@ -37,10 +37,6 @@ List<SelpImg> selpImgList =
 <a href="Logout">ログアウト</a>
 </p>
 <p><a href="Main">更新</a></p>
-<form action="Main" method="post">
-<input type="text" name="text">
-<input type="submit" value="メッセージ">
-</form>
 
 <div>
 <form action="Main" method="post">
@@ -56,13 +52,34 @@ List<SelpImg> selpImgList =
   <label for="image_e"><img src="./images/stamp_sukkiri-08.png" width="100" height="100"></label>
   <input id="image_f" type="radio" value="stamp_sukkiri-24.png" name="selpImg">
   <label for="image_f"><img src="./images/stamp_sukkiri-24.png" width="100" height="100"></label>
-  <input type="submit" value="イメージ">
+  <!-- レンジスライダー -->
+  <br>[今の気分]もう無理<input type="range" name="mentalValue" min="0" max="100" value="100">快調
+  <!-- ボタン -->
+  <br><input type="submit" value="イメージを投稿">
+  
 </form>
 </div>
 
+<br><form action="Main" method="post">
+<select name="selectText">
+	<option value="元気です!">元気です！</option>
+	<option value="普通です。">普通</option>
+	<option value="いまいちです。">いまいち</option>
+	<option value="不調です。">不調</option>
+	<option value="病院行ってきます。">病院行ってきます</option>
+</select>
+
+<input type="text" name="text">
+<input type="submit" value="メッセージ">
+
+</form>
+
+
 <% for (SelpMessage selpMessage : messageList) {%>
 	<% if (selpMessage.getText() != null) { %>
-		<p><%= selpMessage.getUserName() %> : <%= selpMessage.getText() %></p>
+		<p><%= selpMessage.getUserName() %> : <%= selpMessage.getText() %>
+		<small>(<%= new java.text.SimpleDateFormat("yyyy/MM/dd HH:mm").format(selpMessage.getPostDate()) %>)</small>
+		</p>
 	<% } else { %>
 		
 	<% } %>
@@ -70,7 +87,10 @@ List<SelpImg> selpImgList =
 
 <% for (SelpImg selpImg : selpImgList) {%>
 	<% if (selpImg.getSelpImg() != null) { %>
-		<p><%= selpImg.getUserName() %> : <img src="./images/<%= selpImg.getSelpImg() %>" width="100" height="100"></p>
+		<p><%= selpImg.getUserName() %> : <img src="./images/<%= selpImg.getSelpImg() %>" width="100" height="100">
+		メンタル<%= selpImg.getMentalValue() %>
+		<small>(<%= new java.text.SimpleDateFormat("yyyy/mm/dd HH:mm").format(selpImg.getPostDate()) %>)</small>
+		</p>
 	<% } else { %>
 		
 	<% } %>

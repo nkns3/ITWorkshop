@@ -1,0 +1,14 @@
+package model;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+public class PostSCalendarLogic {
+	///カレンダー情報の追加
+	// Calendarクラスの オブジェクト の生成
+    Calendar calendar = Calendar.getInstance();
+    //日付のフォーマットを設定
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy年 MM月 dd日 E曜日 HH時(hh時) mm分 ss秒 SSSミリ秒");
+    // フォーマットを適用し現在時刻を表示
+//    System.out.println(sdf.format(calendar.getTime())); 
+}

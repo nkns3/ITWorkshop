@@ -31,7 +31,7 @@ public class Main extends HttpServlet {
 	ServletContext application = this.getServletContext();
 	List<SelpMessage> messageList =
 	(List<SelpMessage>)application.getAttribute("messageList");
-																			///イメージリストをアプリケーションスコープから取得
+	///イメージリストをアプリケーションスコープから取得
 	List<SelpImg> selpImgList =
 	(List<SelpImg>)application.getAttribute("selpImgList");
 	// 取得できなかった場合は、メッセージリストを新規作成して
@@ -44,6 +44,12 @@ public class Main extends HttpServlet {
 		selpImgList = new ArrayList<>();
 		application.setAttribute("selpImgList", selpImgList);
 	}
+
+////////////////////////////////////// 位置情報を取得しようとするがimport org.json.JSONObject;が導入できない///
+//	// IPアドレスを使って位置情報を取得
+//	String Location = getLocationFromIp(request.getRemoteAddr());
+//	// 位置情報をリクエストスコープに保存
+//	request.setAttribute("location", location);
 	
 	// ログインしているか確認するため
 	// セッションスコープからユーザー情報を取得
@@ -67,11 +73,12 @@ public class Main extends HttpServlet {
 	throws ServletException, IOException {
 	// リクエストパラメータの取得
 	request.setCharacterEncoding("UTF-8");
+	String sImgUrl = request.getParameter("selpImg");
+	String mentalValue = request.getParameter("mentalValue"); 
+	String selectText = request.getParameter("selectText");
 	String text = request.getParameter("text");
-	String sImgUrl = request.getParameter("selpImg");															/// selpImgを追加
-	
 	// 入力チェック
-	if (((text != null) && (text.length() != 0)) || ((sImgUrl != null ) && (sImgUrl.length() != 0))) {			/// selpImgを追加
+	if ((((text != null) && (text.length() != 0)) || ((selectText != null) && (selectText.length() != 0))) || ((sImgUrl != null ) && (sImgUrl.length() != 0))) {
 		// アプリケーションスコープに保存されたメッセージリストを取得
 		ServletContext application = this.getServletContext();
 		List<SelpMessage> messageList = 
@@ -84,22 +91,30 @@ public class Main extends HttpServlet {
 		HttpSession session = request.getSession();
 		User loginUser = (User)session.getAttribute("loginUser");
 		
-		// メッセージを作成してメッセージリストに追加
-		SelpMessage selpMessage = new SelpMessage(loginUser.getName(), text);
-		PostSMessageLogic postSMessageLogic = new PostSMessageLogic();
-		postSMessageLogic.execute(selpMessage, messageList);
-		
-		// アプリケーションスコープにメッセージリストを保存
-		application.setAttribute("messageList",  messageList);
-		
-																							/// イメージURLを作成してイメージリストに追加
-		SelpImg selpImg = new SelpImg(loginUser.getName(), sImgUrl);
-		PostSImgLogic postSImgLogic = new PostSImgLogic();
-		postSImgLogic.execute(selpImg, selpImgList);
-		
-		application.setAttribute("selpImgList", selpImgList);
-	}
-	
+		// 画像が送信されている場合
+        if (sImgUrl != null && !sImgUrl.isEmpty()) {
+            // セルフィー画像の情報を作成して、リストに追加
+            SelpImg selpImg = new SelpImg(loginUser.getName(), sImgUrl, mentalValue);
+            PostSImgLogic postSImgLogic = new PostSImgLogic();
+            postSImgLogic.execute(selpImg, selpImgList);
+
+            // イメージリストをアプリケーションスコープに保存
+            application.setAttribute("selpImgList", selpImgList);
+        }
+
+        // メッセージが送信されている場合
+        if ((selectText != null && !selectText.isEmpty()) || (text != null && !text.isEmpty())) {
+            // メッセージを作成してメッセージリストに追加
+            String messageText = selectText + text; // セレクトボックスとテキストをつなげる
+            SelpMessage selpMessage = new SelpMessage(loginUser.getName(), messageText);
+            PostSMessageLogic postSMessageLogic = new PostSMessageLogic();
+            postSMessageLogic.execute(selpMessage, messageList);
+
+            // メッセージリストをアプリケーションスコープに保存
+            application.setAttribute("messageList", messageList);
+        }
+    }
+
 	// メイン画像にフォワード
 	RequestDispatcher dispatcher = 
 			request.getRequestDispatcher("WEB-INF/jsp/main.jsp");
