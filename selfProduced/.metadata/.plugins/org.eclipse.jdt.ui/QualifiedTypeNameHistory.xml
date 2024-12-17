@@ -13,4 +13,5 @@
     <fullyQualifiedTypeName name="jakarta.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="jakarta.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="model.PostSMessageLogic"/>
+    <fullyQualifiedTypeName name="model.getAddressFromAPI"/>
 </qualifiedTypeNameHistroy>

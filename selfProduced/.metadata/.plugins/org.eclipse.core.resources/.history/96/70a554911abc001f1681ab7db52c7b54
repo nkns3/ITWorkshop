@@ -1,0 +1,46 @@
+  // ユーザーの位置情報を取得する関数
+  function getLocation() {
+    if (navigator.geolocation) {
+      // 現在位置の取得
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+
+  // 位置情報取得に成功した場合の処理
+  function showPosition(position) {
+    // 緯度と経度を取得
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+
+    // 取得した位置情報をフォームに設定
+    document.getElementById("latitude").value = latitude;
+    document.getElementById("longitude").value = longitude;
+
+    // 位置情報を送信する場合はフォームを送信
+    document.getElementById("locationForm").submit();
+  }
+
+  // 位置情報取得に失敗した場合の処理
+  function showError(error) {
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        alert("User denied the request for Geolocation.");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        alert("Location information is unavailable.");
+        break;
+      case error.TIMEOUT:
+        alert("The request to get user location timed out.");
+        break;
+      case error.UNKNOWN_ERROR:
+        alert("An unknown error occurred.");
+        break;
+    }
+  }
+  
+  // ページ読み込み時に位置情報を取得
+  window.onload = function() {
+    getLocation();
+  }

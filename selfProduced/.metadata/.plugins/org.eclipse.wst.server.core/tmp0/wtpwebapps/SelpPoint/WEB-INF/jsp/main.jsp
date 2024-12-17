@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="model.User, model.SelpMessage, model.SelpImg, java.util.List" %>
+<script type="text/javascript" src="./js/script.js"></script>
 <%
 // セッションスコープに保存されたユーザー情報を取得
 User loginUser = (User)session.getAttribute("loginUser");
@@ -10,8 +11,6 @@ List<SelpMessage> messageList =
 					// アプリケーションスコープに保存されたイメージ画像URLを取得
 List<SelpImg> selpImgList =
 (List<SelpImg>)application.getAttribute("selpImgList");
-					
-
 %>
 
 <!DOCTYPE html>
@@ -22,7 +21,7 @@ List<SelpImg> selpImgList =
 <title>SelpPoint</title>
 <link rel="stylesheet" href="./css/style.css">
 </head>
-<body onload="LoadProc();">
+<body>
 <h1>SelpPoint</h1>
 <!-- 現在の日時 -->
 <div id="current_date">
@@ -31,6 +30,16 @@ List<SelpImg> selpImgList =
         document.getElementById("current_date").innerHTML = new Date().toLocaleDateString('ja-JP', options);
     </script>
 </div>
+<p>現在位置: 緯度 = <%= request.getAttribute("latitude") %>, 経度 = <%= request.getAttribute("longitude") %></p>
+
+<!--   <h1>逆ジオコーディング</h1>
+  <button onclick="getLocation()">位置情報を取得</button>
+  <p>住所: <span id="address">住所が表示されます</span></p>
+  <form id="locationForm">
+    <input type="hidden" id="latitude" name="latitude">
+    <input type="hidden" id="longitude" name="longitude">
+  </form> -->
+
 
 <p>
 <%= loginUser.getName() %>さん、ログイン中
@@ -39,7 +48,7 @@ List<SelpImg> selpImgList =
 <p><a href="Main">更新</a></p>
 
 <div>
-<form action="Main" method="post">
+<form action="Main" method="post" id="locationForm">
   <input id="image_a" type="radio" value="stamp_sukkiri-01.png" name="selpImg">
   <label for="image_a"><img src="./images/stamp_sukkiri-01.png" width="100" height="100"></label>
   <input id="image_b" type="radio" value="stamp_sukkiri-02.png" name="selpImg">
@@ -55,12 +64,15 @@ List<SelpImg> selpImgList =
   <!-- レンジスライダー -->
   <br>[今の気分]もう無理<input type="range" name="mentalValue" min="0" max="100" value="100">快調
   <!-- ボタン -->
-  <br><input type="submit" value="イメージを投稿">
-  
+
+  <input type="hidden" id="latitude" name="latitude">
+  <input type="hidden" id="longitude" name="longitude">
+  <br><input type="submit" value="イメージを投稿" onclick="getLocation(); return false;">
+
 </form>
 </div>
 
-<br><form action="Main" method="post">
+<br><form action="Main" method="post" id="locationForm">
 <select name="selectText">
 	<option value="元気です!">元気です！</option>
 	<option value="普通です。">普通</option>
@@ -70,7 +82,9 @@ List<SelpImg> selpImgList =
 </select>
 
 <input type="text" name="text">
-<input type="submit" value="メッセージ">
+<input type="hidden" id="latitude" name="latitude">
+<input type="hidden" id="longitude" name="longitude">
+<input type="submit" value="メッセージ" onclick="getLocation(); return false;">
 
 </form>
 
@@ -80,21 +94,23 @@ List<SelpImg> selpImgList =
 		<p><%= selpMessage.getUserName() %> : <%= selpMessage.getText() %>
 		<small>(<%= new java.text.SimpleDateFormat("yyyy/MM/dd HH:mm").format(selpMessage.getPostDate()) %>)</small>
 		</p>
+		<p>現在位置: 緯度 = <%= request.getAttribute("latitude") %>, 経度 = <%= request.getAttribute("longitude") %></p>
+	<% } else { %>
+		
+	<% } %>
+<% } %>
+/////////////////////////////////なんかメッセージが表示されない
+<% for (SelpImg selpImg : selpImgList) {%>
+	<% if (selpImg.getSelpImg() != null) { %>
+		<p><%= selpImg.getUserName() %> : <img src="./images/<%= selpImg.getSelpImg() %>" width="100" height="100">
+		メンタル<%= selpImg.getMentalValue() %>
+		<small>(<%= new java.text.SimpleDateFormat("yyyy/MM/dd HH:mm").format(selpImg.getPostDate()) %>)</small>
+		</p>
+		<p>現在位置: 緯度 = <%= request.getAttribute("latitude") %>, 経度 = <%= request.getAttribute("longitude") %></p>
 	<% } else { %>
 		
 	<% } %>
 <% } %>
 
-<% for (SelpImg selpImg : selpImgList) {%>
-	<% if (selpImg.getSelpImg() != null) { %>
-		<p><%= selpImg.getUserName() %> : <img src="./images/<%= selpImg.getSelpImg() %>" width="100" height="100">
-		メンタル<%= selpImg.getMentalValue() %>
-		<small>(<%= new java.text.SimpleDateFormat("yyyy/mm/dd HH:mm").format(selpImg.getPostDate()) %>)</small>
-		</p>
-	<% } else { %>
-		
-	<% } %>
-<% } %>
-<script type="text/javascript" src="./js/script.js"></script>
 </body>
 </html>

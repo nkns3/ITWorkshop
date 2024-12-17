@@ -1,0 +1,75 @@
+  // ユーザーの位置情報を取得する関数
+  function getLocation() {
+    if (navigator.geolocation) {
+      // 現在位置の取得
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+      alert("このブラウザは位置情報をサポートしていません");
+    }
+  }
+
+  // 位置情報取得に成功した場合の処理
+  function showPosition(position) {
+    // 緯度と経度を取得
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    
+// Nominatim APIを使って住所を取得
+            var url = `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json&lang=ja`;
+
+//    fetch(url)
+//        .then(response => response.json())
+//        .then(data => {
+//            if (data.address) {
+//                        document.getElementById("address").textContent = data.address.road || data.address.city || "住所が見つかりません";
+//                    } else {
+//                        alert("住所が見つかりませんでした");
+//                    }
+//                })
+//                .catch(error => {
+//                    alert("ジオコーディングに失敗しました: " + error);
+//                });
+
+fetch(url)
+    .then(response => {
+        console.log(response);  // レスポンスを確認
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);  // データを確認
+        if (data.address) {
+            document.getElementById("address").textContent = data.address.road || data.address.city || "住所が見つかりません";
+        } else {
+            alert("住所が見つかりませんでした");
+        }
+    })
+    .catch(error => {
+        console.error("ジオコーディングに失敗しました:", error);
+        alert("ジオコーディングに失敗しました。詳細：" + error.message);
+    });
+
+    // 取得した位置情報をフォームに設定
+    document.getElementById("latitude").value = latitude;
+    document.getElementById("longitude").value = longitude;
+
+    // 位置情報を送信する場合はフォームを送信
+    document.getElementById("locationForm").submit();
+  }
+
+  // 位置情報取得に失敗した場合の処理
+  function showError(error) {
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        alert("ユーザーが位置情報の取得を拒否しました");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        alert("位置情報が利用できません");
+        break;
+      case error.TIMEOUT:
+        alert("位置情報の取得がタイムアウトしました");
+        break;
+      case error.UNKNOWN_ERROR:
+        alert("不明なエラーが発生しました");
+        break;
+    }
+  }

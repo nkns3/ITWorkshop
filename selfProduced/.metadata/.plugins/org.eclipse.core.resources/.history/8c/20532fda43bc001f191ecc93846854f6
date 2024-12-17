@@ -1,0 +1,41 @@
+package model;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+public class GeocodingAPI {
+    // 逆ジオコーディングAPIを呼び出して住所を取得するメソッド
+    public static String getAddressFromAPI(String apiUrl) {
+        try {
+            URL url = new URL(apiUrl);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+
+            // レスポンスの読み取り
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            StringBuilder response = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
+            reader.close();
+
+            // JSONレスポンスの解析
+            JSONObject jsonResponse = new JSONObject(response.toString());
+            JSONArray results = jsonResponse.optJSONArray("results");
+
+            if (results != null && results.length() > 0) {
+                JSONObject firstResult = results.getJSONObject(0);
+                return firstResult.optString("address", "住所が見つかりません");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+}
