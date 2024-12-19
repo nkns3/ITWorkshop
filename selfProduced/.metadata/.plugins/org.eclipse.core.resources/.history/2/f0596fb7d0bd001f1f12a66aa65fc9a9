@@ -1,0 +1,29 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap');
+
+body {
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+/*	font-weight: 400;  Regular 400 */
+/*	font-weight: 500;  Medium 500 */
+	font-weight: 700; /* Bold 700 */
+/*	font-weight: 800;  Extra-bold 800 */
+/*	font-weight: 900;  Black 900 */
+}
+
+/* ラジオボタンの○を消す */
+input[type="radio"] {
+    display: none;
+}
+/* 画像の周りに隙間をあける */
+label img {
+    margin: 3px;
+    padding: 5px;
+}
+/* 未選択の場合、色を薄くする */
+input[type="radio"] + label img {
+    opacity:0.5;
+  }
+/* 選択済みの場合、色を濃くする */
+input[type="radio"]:checked + label img {
+    opacity:1;
+}

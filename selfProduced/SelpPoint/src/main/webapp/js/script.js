@@ -1,12 +1,21 @@
 // ユーザーの位置情報を取得する関数
 function getLocation() {
     if (navigator.geolocation) {
-        // 現在位置の取得
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
+        navigator.geolocation.getCurrentPosition(function(position) {
+            // 位置情報をフォームの隠しフィールドに設定
+            document.getElementById("latitude").value = position.coords.latitude;
+            document.getElementById("longitude").value = position.coords.longitude;
+            // フォームの送信を実行
+            document.getElementById("locationForm1").submit();
+        }, function(error) {
+            console.log("位置情報の取得に失敗しました: " + error.message);
+            alert("位置情報を取得できませんでした");
+        });
     } else {
-        alert("このブラウザは位置情報をサポートしていません");
+        alert("このブラウザは位置情報に対応していません");
     }
 }
+
 
 // 位置情報取得に成功した場合の処理
 function showPosition(position) {

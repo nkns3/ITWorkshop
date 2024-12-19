@@ -1,0 +1,26 @@
+package model;
+import java.io.Serializable;
+import java.util.Date;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+//	コメントに関する情報を持つJavaBeans
+public class SelpMessage implements Serializable {
+	private String userName;	// ユーザー名
+	private String text;		// コメント内容
+	private Date postDate;		/// 投稿日時
+	private String geometry;	/// 発信位置
+	
+	public SelpMessage() {}
+	public SelpMessage(String userName, String text) {
+		this.userName = userName;
+		this.text = text;
+		this.postDate = new Date();	///現在日時を設定
+		this.geometry = "現在置:緯度=" + HttpServletRequest.request.getParameter("latitude") + " 経度=" + HttpServletRequest.request.getParameter("longitude");
+	}
+
+	public String getUserName() { return userName; }
+	public String getText() { return text; }
+	public Date getPostDate() { return postDate; }	/// postDateのゲッターを追加
+	public String getGeometry() { return geometry; }
+}

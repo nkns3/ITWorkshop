@@ -48,7 +48,7 @@ List<SelpImg> selpImgList =
 <p><a href="Main">更新</a></p>
 
 <div>
-<form action="Main" method="post" id="locationForm">
+<form action="Main" method="post" id="locationForm1">
   <input id="image_a" type="radio" value="stamp_sukkiri-01.png" name="selpImg">
   <label for="image_a"><img src="./images/stamp_sukkiri-01.png" width="100" height="100"></label>
   <input id="image_b" type="radio" value="stamp_sukkiri-02.png" name="selpImg">
@@ -67,12 +67,12 @@ List<SelpImg> selpImgList =
 
   <input type="hidden" id="latitude" name="latitude">
   <input type="hidden" id="longitude" name="longitude">
-  <br><input type="submit" value="イメージを投稿" onclick="getLocation(); return false;">
+  <br><input type="submit" value="イメージを投稿" onclick="getLocation();">
 
 </form>
 </div>
 
-<br><form action="Main" method="post" id="locationForm">
+<br><form action="Main" method="post" id="locationForm2">
 <select name="selectText">
 	<option value="元気です!">元気です！</option>
 	<option value="普通です。">普通</option>
@@ -84,7 +84,7 @@ List<SelpImg> selpImgList =
 <input type="text" name="text">
 <input type="hidden" id="latitude" name="latitude">
 <input type="hidden" id="longitude" name="longitude">
-<input type="submit" value="メッセージ" onclick="getLocation(); return false;">
+<input type="submit" value="メッセージ" onclick="getLocation()">
 
 </form>
 
@@ -94,21 +94,18 @@ List<SelpImg> selpImgList =
 		<p><%= selpMessage.getUserName() %> : <%= selpMessage.getText() %>
 		<small>(<%= new java.text.SimpleDateFormat("yyyy/MM/dd HH:mm").format(selpMessage.getPostDate()) %>)</small>
 		</p>
-		<p>現在位置: 緯度 = <%= request.getAttribute("latitude") %>, 経度 = <%= request.getAttribute("longitude") %></p>
-	<% } else { %>
-		
+		<small><%= selpMessage.getGeometry() %></small>
+	<% } else { %>	
 	<% } %>
 <% } %>
-/////////////////////////////////なんかメッセージが表示されない
 <% for (SelpImg selpImg : selpImgList) {%>
 	<% if (selpImg.getSelpImg() != null) { %>
 		<p><%= selpImg.getUserName() %> : <img src="./images/<%= selpImg.getSelpImg() %>" width="100" height="100">
 		メンタル<%= selpImg.getMentalValue() %>
 		<small>(<%= new java.text.SimpleDateFormat("yyyy/MM/dd HH:mm").format(selpImg.getPostDate()) %>)</small>
 		</p>
-		<p>現在位置: 緯度 = <%= request.getAttribute("latitude") %>, 経度 = <%= request.getAttribute("longitude") %></p>
+		<small><%= selpImg.getGeometry() %></small>
 	<% } else { %>
-		
 	<% } %>
 <% } %>
 

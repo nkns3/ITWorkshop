@@ -76,6 +76,13 @@ public class Main extends HttpServlet {
 	// 位置情報の取得
     String latitude = request.getParameter("latitude");
     String longitude = request.getParameter("longitude");
+    String geometry = null;
+    
+    if (latitude == "" || longitude == "") {
+    	geometry = "位置情報を取得できませんでした";
+    }else {
+    	geometry = "( 現在置:緯度=" + latitude + " 経度=" + longitude +" )";
+    }
     
 // // 位置情報が送信されていない場合のデバッグメッセージ
 //    if (latitude == null || longitude == null) {
@@ -83,7 +90,6 @@ public class Main extends HttpServlet {
 //    } else {
 //        System.out.println("位置情報: 緯度 = " + latitude + ", 経度 = " + longitude);
 //    }
-
     // 位置情報をJSPに渡す
     request.setAttribute("latitude", latitude);
     request.setAttribute("longitude", longitude);
@@ -107,7 +113,7 @@ public class Main extends HttpServlet {
 		// 画像が送信されている場合
         if (sImgUrl != null && !sImgUrl.isEmpty()) {
             // セルフィー画像の情報を作成して、リストに追加
-            SelpImg selpImg = new SelpImg(loginUser.getName(), sImgUrl, mentalValue);
+            SelpImg selpImg = new SelpImg(loginUser.getName(), sImgUrl, mentalValue, geometry);
             PostSImgLogic postSImgLogic = new PostSImgLogic();
             postSImgLogic.execute(selpImg, selpImgList);
 
@@ -119,7 +125,7 @@ public class Main extends HttpServlet {
         if ((selectText != null && !selectText.isEmpty()) || (text != null && !text.isEmpty())) {
             // メッセージを作成してメッセージリストに追加
             String messageText = selectText + text; // セレクトボックスとテキストをつなげる
-            SelpMessage selpMessage = new SelpMessage(loginUser.getName(), messageText);
+            SelpMessage selpMessage = new SelpMessage(loginUser.getName(), messageText, geometry);
             PostSMessageLogic postSMessageLogic = new PostSMessageLogic();
             postSMessageLogic.execute(selpMessage, messageList);
 
