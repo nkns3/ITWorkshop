@@ -6,7 +6,8 @@ function getLocation() {
             document.getElementById("latitude").value = position.coords.latitude;
             document.getElementById("longitude").value = position.coords.longitude;
             // フォームの送信を実行
-            document.getElementById("locationForm1").submit();
+          	document.getElementById("locationForm").submit();//////////////////javascriptでフォームが二回押されている
+//			document.getElementById("locationForm2").submit();
         }, function(error) {
             console.log("位置情報の取得に失敗しました: " + error.message);
             alert("位置情報を取得できませんでした");
@@ -39,13 +40,6 @@ function showPosition(position) {
 //            alert("ジオコーディングに失敗しました: " + error);
 //            system.println(url + ":" + address);
 //        });
-
-    // 取得した位置情報をフォームに設定
-    document.getElementById("latitude").value = latitude;
-    document.getElementById("longitude").value = longitude;
-
-    // フォーム送信
-    document.getElementById("locationForm").submit();  // これで位置情報をサーバーに送信
 }
 
 // 位置情報取得に失敗した場合の処理

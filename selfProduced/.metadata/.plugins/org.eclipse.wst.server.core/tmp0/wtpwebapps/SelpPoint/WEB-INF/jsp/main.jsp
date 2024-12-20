@@ -30,8 +30,8 @@ List<SelpImg> selpImgList =
         document.getElementById("current_date").innerHTML = new Date().toLocaleDateString('ja-JP', options);
     </script>
 </div>
-<p>現在位置: 緯度 = <%= request.getAttribute("latitude") %>, 経度 = <%= request.getAttribute("longitude") %></p>
-
+<%-- <p>現在位置: 緯度 = <%= request.getAttribute("latitude") %>, 経度 = <%= request.getAttribute("longitude") %></p>
+ --%>
 <!--   <h1>逆ジオコーディング</h1>
   <button onclick="getLocation()">位置情報を取得</button>
   <p>住所: <span id="address">住所が表示されます</span></p>
@@ -43,12 +43,16 @@ List<SelpImg> selpImgList =
 
 <p>
 <%= loginUser.getName() %>さん、ログイン中
-<a href="Logout">ログアウト</a>
-</p>
+<br><a href="Logout">ログアウト</a>
 <p><a href="Main">更新</a></p>
 
 <div>
-<form action="Main" method="post" id="locationForm1">
+<form action="Main" method="post" id="locationForm">
+  <input id="image_e" type="radio" value="stamp_sukkiri-08.png" name="selpImg">
+  <label for="image_e"><img src="./images/stamp_sukkiri-08.png" width="100" height="100"></label>
+  <input id="image_f" type="radio" value="stamp_sukkiri-24.png" name="selpImg">
+  <label for="image_f"><img src="./images/stamp_sukkiri-24.png" width="100" height="100"></label>
+  <rd>
   <input id="image_a" type="radio" value="stamp_sukkiri-01.png" name="selpImg">
   <label for="image_a"><img src="./images/stamp_sukkiri-01.png" width="100" height="100"></label>
   <input id="image_b" type="radio" value="stamp_sukkiri-02.png" name="selpImg">
@@ -57,38 +61,30 @@ List<SelpImg> selpImgList =
   <label for="image_c"><img src="./images/stamp_sukkiri-05.png" width="100" height="100"></label>
   <input id="image_d" type="radio" value="stamp_sukkiri-07.png" name="selpImg">
   <label for="image_d"><img src="./images/stamp_sukkiri-07.png" width="100" height="100"></label>
-  <input id="image_e" type="radio" value="stamp_sukkiri-08.png" name="selpImg">
-  <label for="image_e"><img src="./images/stamp_sukkiri-08.png" width="100" height="100"></label>
-  <input id="image_f" type="radio" value="stamp_sukkiri-24.png" name="selpImg">
-  <label for="image_f"><img src="./images/stamp_sukkiri-24.png" width="100" height="100"></label>
-  <!-- レンジスライダー -->
-  <br>[今の気分]もう無理<input type="range" name="mentalValue" min="0" max="100" value="100">快調
-  <!-- ボタン -->
 
+  <!-- レンジスライダー -->
+  <br>[今の気分]<br>もう無理<input type="range" name="mentalValue" min="0" max="100" value="100">快調
+  <!-- ボタン -->
+  <br><input type="submit" value="イメージを投稿" onclick="getLocation();">
   <input type="hidden" id="latitude" name="latitude">
   <input type="hidden" id="longitude" name="longitude">
-  <br><input type="submit" value="イメージを投稿" onclick="getLocation();">
-
 </form>
-</div>
 
-<br><form action="Main" method="post" id="locationForm2">
+<br><br><form action="Main" method="post" id="locationForm">
 <select name="selectText">
 	<option value="元気です!">元気です！</option>
+	<option value=null selected disabled></option>
 	<option value="普通です。">普通</option>
 	<option value="いまいちです。">いまいち</option>
 	<option value="不調です。">不調</option>
 	<option value="病院行ってきます。">病院行ってきます</option>
 </select>
-
 <input type="text" name="text">
+<br><input type="submit" value="メッセージを投稿" onclick="getLocation()">
 <input type="hidden" id="latitude" name="latitude">
 <input type="hidden" id="longitude" name="longitude">
-<input type="submit" value="メッセージ" onclick="getLocation()">
-
 </form>
-
-
+</div>
 <% for (SelpMessage selpMessage : messageList) {%>
 	<% if (selpMessage.getText() != null) { %>
 		<p><%= selpMessage.getUserName() %> : <%= selpMessage.getText() %>

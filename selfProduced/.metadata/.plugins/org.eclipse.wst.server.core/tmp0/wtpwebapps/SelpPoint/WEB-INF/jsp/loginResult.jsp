@@ -6,9 +6,12 @@
 // セッションスコープからユーザー情報を取得
 User loginUser = (User)session.getAttribute("loginUser");
 %>
-
 <!DOCTYPE html>
 <!-- ログイン結果画面を出力するビュー -->
+<!-- リセットCSS -->
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+<!-- オリジナルCSS -->
+<link rel="stylesheet" href="css/style.css">
 
 <html>
 <head>
@@ -17,7 +20,7 @@ User loginUser = (User)session.getAttribute("loginUser");
 </head>
 <body>
 <% if(loginUser != null) { %>
-	<p>ログインしました</p>
+	<h1>ログインしました</h1>
 	<p>ようこそ「<%= loginUser.getName() %>」さん</p>
 	<a href="Main">メインメニューへ</a>
 <% } else { %>

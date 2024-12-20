@@ -9,6 +9,9 @@
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
 			<item value="latitude"/>
+			<item value="latitube"/>
+			<item value="locationform"/>
+			<item value="PostSM"/>
 			<item value="Received location"/>
 			<item value="script"/>
 			<item value="LoadProc"/>

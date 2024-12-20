@@ -1,0 +1,69 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400&family=Varela+Round&display=swap'); 
+
+* {
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+	color: deepskyblue;
+	background-color:floralwhite;
+}
+h1 {
+	background-color:orangered;
+	font-size:20px;
+	font-weight: bold;
+	line-height: 1.7;
+	text-align: center;
+}
+
+body {
+	margin-top: 30px;
+	padding: auto;
+	text-align: center;
+	width:300px;
+	height:auto;
+	margin: auto;
+	margin-top: 5%;
+	border-width: thick;
+	border-style: solid;
+	
+}
+form {
+	background-color: orange;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: auto;
+	color: black;
+	text-align: center;
+	padding: auto;
+	padding-bottom: 10rem;
+}
+
+input {
+	margin-bottom: 5rem;
+	border-bottom: 1q solid orangered;
+}
+
+/* レイアウト */
+.align-center {
+	text-align: center;
+}
+.logo {
+	width: 210px;
+}	
+
+/* ラジオボタンの○を消す */
+input[type="radio"] {
+    display: none;
+}
+/* 画像の周りに隙間をあける */
+label img {
+    margin: 3px;
+    padding: 5px;
+}
+/* 未選択の場合、色を薄くする */
+input[type="radio"] + label img {
+    opacity:0.5;
+  }
+/* 選択済みの場合、色を濃くする */
+input[type="radio"]:checked + label img {
+    opacity:1;
+}

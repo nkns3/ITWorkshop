@@ -2,6 +2,10 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!-- ログアウト画面を出力するビュー -->
+<!-- リセットCSS -->
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+<!-- オリジナルCSS -->
+<link rel="stylesheet" href="css/style.css">
 
 <html>
 <head>

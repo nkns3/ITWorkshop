@@ -90,9 +90,9 @@ public class Main extends HttpServlet {
 //    } else {
 //        System.out.println("位置情報: 緯度 = " + latitude + ", 経度 = " + longitude);
 //    }
-    // 位置情報をJSPに渡す
-    request.setAttribute("latitude", latitude);
-    request.setAttribute("longitude", longitude);
+      // 位置情報をJSPに渡す
+//    request.setAttribute("latitude", latitude);
+//    request.setAttribute("longitude", longitude);
 
     
     
@@ -110,18 +110,19 @@ public class Main extends HttpServlet {
 		HttpSession session = request.getSession();
 		User loginUser = (User)session.getAttribute("loginUser");
 		
-		// 画像が送信されている場合
+		// 画像が送信された場合
         if (sImgUrl != null && !sImgUrl.isEmpty()) {
-            // セルフィー画像の情報を作成して、リストに追加
+            // 画像の情報を作成して、リストに追加
             SelpImg selpImg = new SelpImg(loginUser.getName(), sImgUrl, mentalValue, geometry);
             PostSImgLogic postSImgLogic = new PostSImgLogic();
             postSImgLogic.execute(selpImg, selpImgList);
 
             // イメージリストをアプリケーションスコープに保存
             application.setAttribute("selpImgList", selpImgList);
+        } else {
         }
-
-        // メッセージが送信されている場合
+        
+        // メッセージが送信された場合
         if ((selectText != null && !selectText.isEmpty()) || (text != null && !text.isEmpty())) {
             // メッセージを作成してメッセージリストに追加
             String messageText = selectText + text; // セレクトボックスとテキストをつなげる
@@ -131,7 +132,10 @@ public class Main extends HttpServlet {
 
             // メッセージリストをアプリケーションスコープに保存
             application.setAttribute("messageList", messageList);
+        } else {
         }
+        
+    } else {
     }
 
 	// メイン画像にフォワード

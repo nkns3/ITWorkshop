@@ -2,8 +2,51 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400&family=Varela+Round&display=swap'); 
 
 * {
-font-family: 'M PLUS Rounded 1c', sans-serif;
-background-color: #FF8B20;/*///////////////////////////反映しない*/
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+	color: orangered;
+	background-color:floralwhite;
+}
+
+h1 {
+	color: white;
+	background-color:orangered;
+	font-size:20px;
+	font-weight: bold;
+	line-height: 1.7;
+	text-align: center;
+}
+
+body {
+	background-color: lightyellow;
+	margin-top: 30px;
+	padding: auto;
+	text-align: center;
+	width:350px;
+	height:auto;
+	margin: auto;
+	margin-top: 5%;
+	border-width: thick;
+	border-style: solid;
+	
+}
+input-box {
+	background-color: honeydew;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: auto;
+	color: black;
+	text-align: center;
+	padding: auto;
+	padding-bottom: 10rem;
+}
+input {
+	border-bottom: 1q solid orangered;
+}
+.login-box {
+	margin-top: 2rem;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 3rem;;
 }
 /* レイアウト */
 .align-center {
@@ -11,15 +54,7 @@ background-color: #FF8B20;/*///////////////////////////反映しない*/
 }
 .logo {
 	width: 210px;
-}
-/*body {
-.m-plus-rounded-1c-regular {
-  font-family: "M PLUS Rounded 1c", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-}*/
-
+}	
 
 /* ラジオボタンの○を消す */
 input[type="radio"] {
